@@ -1,0 +1,12 @@
+{% extends 'layouts/master.html' %} {% block title %}New advert{% endblock %} {% block body %}
+<div class="" data-color="blue">
+	<div class="container">
+<h1>Image Uploader</h1>
+	<form class="form-control" id="upload-form" action="{{ url_for('upload')}}" method="POST" enctype="multipart/form-data">
+		<input class="form-control" type="file" name="file" accept="static/uploads/*" multiple="">
+		<input class="form-control" type="submit" value="upload">
+	</form>
+
+</div>
+</div>
+{% endblock %}

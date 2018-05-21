@@ -1,0 +1,17 @@
+{% extends 'layouts/master.html' %}
+{% block title %}View{% endblock %}
+{% block body %}
+<h1>new tweet</h1>
+<hr/>
+<blockquote></blockquote>
+<form action="{{ url_for('tweet') }}" method="get" class="navbar-form navbar-left">
+<div class="form-group">
+	<input type="text" name="msg" class="form-control" placeholder="Message...">
+</div>			
+<form action="/tweet" method="post">
+
+	<button type="submit">Tweet this</button>
+
+</form>
+
+{% endblock %}

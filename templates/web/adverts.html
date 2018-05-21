@@ -1,0 +1,54 @@
+{% extends 'layouts/master.html' %}
+{% block title %}View{% endblock %}
+{% block body %}
+<hr/>
+
+<hr/>
+<h1>Adverts</h1>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th scope="col">Name</th>
+			<th scope="col">price <em>$</em></th>
+			<th scope="col">location</th>
+			<th scope="col">Date</th>
+			<th scope="col">Time</th>
+			<th scope="col">Description</th>
+			<th scope="col">Photo</th>
+			<th></th>
+			<th></th>
+			<th>
+			
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		
+	{% for advert in adverts %}
+		<tr>
+			<td>{{ advert.name }}</td>
+			<td>{{ advert.price}}</td>
+			<td>{{ advert.location }}</td>
+			<td>{{ advert.date }}</td>
+			<td>{{ advert.time }}</td>
+			<td>{{ advert.description }}</td>
+			<td>
+				<img src="{{im_path}}/{{advert.photo}}" class="img-rounded" style="width:100% ;height:300dp" alt="image">
+			
+			</td>
+			
+			<td class="text-right">
+				<div class="row">
+					<form action="{{ url_for('adverts_delete') }}" method="post" class="pull-right">
+						<input type="hidden" name="id" value="{{ advert.id }}">
+						<input type="submit" class="btn btn-danger" data-toggle="confirmation" {# data-title="¿Estas seguro?" #} value="Delete">
+					</form>
+					<a class="btn btn-primary pull-right" href="{{ url_for('edit_advert', id=advert.id) }}">Edit</a>
+					</div>
+			</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

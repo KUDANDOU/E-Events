@@ -1,0 +1,83 @@
+{% from 'helpers/_forms.html' import generate_fields with context %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %}{% endblock %} | Adverts</title>
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+			<link href="../assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+		<link href="../static/assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="../static/assets/css/landing-page.css" rel="stylesheet" />
+		<link href="../static/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+		<script src="/static/scripts/modernizr-2.6.2.js"></script>
+		<script src="../static/assets/js/bootstrap.js"></script>
+		<script src="../static/assets/js/jquery-1.10.2.js"></script>
+		<script src="../static/assets/js/jquery-ui-1.10.4.custom.min.js"></script>
+  </head>
+  <body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand" href="/">Avertisement System Manager</a>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<form action="{{ url_for('search') }}" method="get" class="navbar-form navbar-left">
+			<div class="form-group">
+			  <input type="text" name="name" class="form-control" placeholder="Name...">
+			</div>
+			<button type="submit" class="btn btn-default">Search</button>
+		  </form>
+		  <ul class="nav navbar-nav navbar-right">
+			  <!--li><a href="{{ url_for('new_contact') }}">New</a></li-->
+			<li>
+				<a href="{{ url_for('events') }}">Events</a>
+			</li>
+				<li>
+					<a href="{{ url_for('new_advert') }}">New Advert</a>
+				</li>
+				<li>
+					<a href="{{ url_for('adverts') }}">View Adverts</a>
+				</li>
+					<li>
+						<a href="{{ url_for('upload') }}">Uploads</a>
+					</li>
+						<li>
+							<a href="{{ url_for('tweets') }}">Tweets</a>
+						</li>
+						<li>
+							<a href="{{ url_for('logout') }}">Logout</a>
+						</li>
+		  </ul>
+		</div>
+	  </div>
+	</nav>
+	<div class="container">
+		{# Flashed messages #}
+		{% with messages = get_flashed_messages(with_categories=true) %}
+		  {% if messages %}
+			{% for category, message in messages %}
+			  <div class="alert alert-{{ category }}" role="alert">{{ message }}</div>
+			{% endfor %}
+		  {% endif %}
+		{% endwith %}
+		{# End Flashed messages #}
+		{% block body %}{% endblock %}
+	</div>
+    <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-confirmation.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+		<script src="/static/scripts/jquery-1.10.2.js"></script>
+		<script src="/static/scripts/bootstrap.js"></script>
+		<script src="/static/scripts/respond.js"></script>
+  </body>
+</html>

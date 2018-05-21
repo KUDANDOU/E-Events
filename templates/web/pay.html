@@ -1,0 +1,9 @@
+ {% import "bootstrap/wtf.html" as wtf %}
+{% extends 'layouts/master.html' %} {% block title %}New advert{% endblock %} {% block body %}
+<h1>New advert</h1>
+<form action="" method="post">
+     {{ form.hidden_tag() }}
+    {{ wtf.form_field(form.phone) }}
+    <input type="submit" class="btn btn-success" value="Add">
+</form>
+{% endblock %}

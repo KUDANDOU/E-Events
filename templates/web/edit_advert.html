@@ -1,0 +1,13 @@
+{% extends 'layouts/master.html' %}
+{% block title %}Edit advert{% endblock %}
+{% block body %}
+<h1>Edit advert</h1>
+<h2>Event Date {{date}}</h2>
+<form method="post">
+	{{ generate_fields(form) }}
+	
+	<input type="submit" class="btn btn-success" value="Save">
+</form>
+
+
+{% endblock %}

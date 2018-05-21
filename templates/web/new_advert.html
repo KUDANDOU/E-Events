@@ -1,0 +1,9 @@
+{% extends 'layouts/master.html' %}
+{% block title %}New advert{% endblock %}
+{% block body %}
+<h1>New advert</h1>
+<form action="{{ url_for('new_advert') }}" method="post">
+	{{ generate_fields(form) }}
+	<input type="submit" class="btn btn-success" value="Add">
+</form>
+{% endblock %}

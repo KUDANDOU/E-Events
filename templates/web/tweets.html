@@ -1,0 +1,41 @@
+{% extends 'layouts/master.html' %}
+{% block title %}View{% endblock %}
+{% block body %}
+<h1>tweets</h1>
+<hr/>
+<blockquote></blockquote>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th scope="col">Polarity</th>
+			<th scope="col">User Desc <em>$</em></th>
+			<th scope="col">Coodinates</th>
+			<th scope="col">Text</th>
+			<th scope="col">Geo</th>
+			<th scope="col">User Created</th>
+			<th scope="col">Followers</th>
+			<th scope="col">Created</th>
+			<th scope="col">Retweet Count</th>
+			<th scope="col">Subjectivity</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		
+	{% for tweets in tweets %}
+		<tr>
+			<td>{{ tweets.polarity }}</td>
+			<td>{{ tweets.user_description}}</td>
+			<td>{{ tweets.coordinates }}</td>
+			<td>{{ tweets.text}}</td>
+			<td>{{ tweets.geo }}</td>
+			<td>{{ tweets.user_created}}</td>
+			<td>{{ tweets.user_followers }}</td>
+			<td>{{ tweets.created}}</td>
+			<td>{{ tweets.retweet_count }}</td>
+			<td>{{ tweets.user_subjectivity}}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

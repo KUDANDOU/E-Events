@@ -1,0 +1,6 @@
+{% import "bootstrap/wtf.html" as wtf %} {% extends 'layouts/master.html' %} {% block title %}New advert{% endblock %} {%
+block body %}
+<h1>New advert</h1>
+{{ content|safe }}
+{{ content|tojson }}
+{% endblock %}
